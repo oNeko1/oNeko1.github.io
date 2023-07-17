@@ -1,0 +1,326 @@
+* {
+    margin: 0px;
+}
+
+body {
+    background-color: darkblue;
+    overflow-x: hidden;
+}
+
+button {
+    padding: 1% 2%;
+    border-radius: 20px;
+}
+
+#left-menu {
+    position: fixed;
+    width: 30%;
+    height: 100%;
+    background-color: black;
+
+    z-index: -1;  /* Hide it behind everything else */
+}
+
+#main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#loadingScreen {
+    z-index: 100;  /* So that it overlap everything */
+    position: fixed;
+    background-color: white;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+#loadingScreen > img {
+    margin-top: 20vh;
+    width: 60vh;
+}
+
+#header {
+    background-color: white;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+#headerLinksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: flex-end;
+}
+
+#headerLinksContainer > h1 {
+    font-size: 1.5rem;
+    font-family: helvetica;
+    padding-top: 3vh;
+    margin-right: 5vw;
+    transition: all 0.3s;
+}
+
+#headerLinksContainer > h1:hover {
+    opacity: 40%;
+    translate: 0px -0.2rem;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+
+#header > img {
+    width: 10%;
+    transition: all 0.3s;
+}
+
+#header > img:hover {
+    opacity: 40%;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px)
+{
+    #header > img {
+        width: 15%;
+    }
+
+    #headerLinksContainer {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 540px)
+{
+    #header > img {
+        width: 24%;
+    }
+
+    #headerLinksContainer {
+        width: 76%;
+    }
+}
+
+/*
+**********************************************
+**********************************************
+**********************************************
+
+Home page stuff
+
+**********************************************
+**********************************************
+**********************************************
+*/
+
+#homePage {
+    display: flex;
+    height: 100vh;
+    background-color: white;
+    flex-wrap: wrap;
+}
+
+/*
+HomeContent stuff
+*/
+
+#homeContent {
+    width: 60%;
+    height: 100%;
+    display: grid;
+    z-index: 3;
+
+    grid-template-columns: repeat(6, 16%);
+    grid-template-rows: repeat(6, 16%);
+}
+
+#homeContentTitle {
+    grid-column: 2 / 5;
+    grid-row: 2 / 3;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+#homeContentTitle > h1 {
+    font-size: 6rem;
+}
+
+#homeContentDescription {
+    grid-column: 2 / 5;
+    grid-row: 3 / 4;
+}
+
+#homeContentDescription > p {
+    font-size: 1.5rem;
+    font-family: verdana;
+}
+
+#homeContentButton {
+    grid-column: 2 / 4;
+    grid-row: 4 / 5;
+}
+
+#learnMore {
+    background-color: rgba(255, 0, 0, 0.85);
+    border: transparent;
+    font-family: verdana;
+    box-shadow: 2px 5px;
+    transition: all 0.3s;
+
+    font-size: 2rem;
+    padding: 3vh 3vw;
+}
+
+#learnMore:hover {
+    background-color: rgb(150, 0, 0, 0.7);
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+#learnMore:active {
+    translate: 2px 4px;
+    box-shadow: 0px 1px;
+    transition: all 0.1s;
+}
+
+/*
+**********************************************
+**********************************************
+**********************************************
+
+HomeDesign stuff
+
+**********************************************
+**********************************************
+**********************************************
+*/
+
+#homeDesigns {
+    width: 40%;
+    height: 100vh;
+    align-items: flex-end;
+}
+
+#ancientJapaneseHouse1 {
+    height: 90%;
+    opacity: 10%; 
+    position: absolute;
+}
+
+#cover {
+    position: absolute;
+    width: 35%;
+    height: 40vh;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    z-index: 2; /* So that the background doesn't go infront of this */
+    background-image: url("Images/CoverArt3.jpg");
+    background-size: cover;
+}
+
+@media screen and (max-width: 800px)
+{
+    #homeContent {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #homeDesigns {
+        display: none;
+    }
+
+    #homeContentTitle > h1 {
+        font-size: 4.5rem;
+    }
+    
+    #homeContentDescription > p {
+        font-size: 1.2rem;
+    }
+
+    #learnMore {
+        box-shadow: 2px 4px;
+        transition: all 0.3s;
+    
+        font-size: 1.5rem;
+        padding: 3vh 4vw;
+    }
+    
+    #learnMore:active {
+        translate: 2px 3px;
+        box-shadow: 0px 1px;
+    }
+    
+    #ancientJapaneseHouse1 {
+        height: 85%; 
+        justify-self: flex-end; 
+        opacity: 10%; 
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 540px)
+{
+    #homeContent {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #homeDesigns {
+        display: none;
+    }
+
+    #learnMore {
+        box-shadow: 1px 3px;
+        transition: all 0.3s;
+    
+        padding: 3vh 12vw;
+    }
+    
+    #learnMore:active {
+        translate: 1px 2px;
+        box-shadow: 0px 1px;
+    }
+    
+    #ancientJapaneseHouse1 {
+        height: 70%; 
+        justify-self: flex-end; 
+        opacity: 10%; 
+        position: absolute;
+    }
+}
+
+/*
+Other
+*/
+
+#testPage1 {
+    display: none;
+    background-color: red;
+}
+
+#destinationPage {
+    display: none;
+    background-color: green;
+}
+
+#testPage2 {
+    display: none;
+    background-color: blue;
+}
+
+#page-container {
+    width: 100%;
+}
+
+.page {
+    min-height: 90vh;
+}
+
+nav ul li{display:inline;}
