@@ -1,0 +1,1154 @@
+* {
+    margin: 0px;
+    transition: opacity 1s;
+}
+
+/* 
+Default stuff 
+*/
+
+body {
+    background-color: white;
+    overflow-x: hidden;
+}
+
+hr {
+    width: 90%;
+    height: 0.25vh;
+    background-color: black;
+    color: black;
+}
+
+button {
+    padding: 1% 2%;
+    border-radius: 20px;
+}
+
+#emptyBlackSpace {
+    height: 7vw;
+}
+
+#left-menu {    
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    left: -120%;
+    background-color: black;
+
+    z-index: 10;  /* Make it overlap everything else */
+}
+
+#left-menu > h1 {
+    color: red;
+    font-family: helvetica;
+    padding: 1.5rem;
+    font-size: 3rem;
+}
+
+#left-menu > h2 {
+    color: white;
+    font-family: helvetica;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+
+    transition: all 0.3s;
+}
+
+#left-menu > h2:hover {
+    opacity: 40%;
+    translate: 0px -0.3rem;
+    cursor: pointer;
+
+    transition: all 0.7s;
+}
+
+#left-menu > hr {
+    background-color: white;
+    margin-right: 2vw;
+}
+
+#main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#loadingScreen {
+    z-index: 100;  /* So that it overlap everything */
+    position: fixed;
+    background-color: white;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loadingScreen > img {
+    width: 60vh;
+}
+
+#header {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+}
+
+#headerLinksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 93%;
+    justify-content: flex-end;
+}
+
+#headerLinksContainer > h1 {
+    font-size: 1.5rem;
+    font-family: helvetica;
+    margin-right: 5vw;
+    transition: all 0.3s;
+}
+
+#headerLinksContainer > h1:hover {
+    opacity: 40%;
+    translate: 0px -0.2rem;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+
+#menuButton {
+    width: 7%;
+    transition: all 0.3s;
+    z-index: 11;  /* Overlap the menu itself */
+}
+
+#header > img:hover {
+    opacity: 40%;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px)
+{
+    #emptyBlackSpace {
+        height: 15vw;
+    }
+
+    #headerLinksContainer > h1 {
+        font-size: 1.2rem;
+    }
+
+    #header > img {
+        width: 15%;
+    }
+
+    #headerLinksContainer {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 540px)
+{
+    #emptyBlackSpace {
+        height: 24vw;
+    }
+
+    #header > img {
+        width: 24%;
+    }
+
+    #headerLinksContainer > h1 {
+        display: none;
+    }
+    
+    #left-menu > h1 {
+        font-size: 5rem;
+    }
+    
+    #left-menu > h2 {
+        font-size: 3rem;
+    }
+}
+
+/*
+**********************************************
+**********************************************
+**********************************************
+
+Home page stuff
+
+**********************************************
+**********************************************
+**********************************************
+*/
+
+#homePage {
+    display: flex;
+    height: 100vh;
+    background-color: white;
+    flex-wrap: wrap;
+}
+
+/*
+HomeContent stuff
+*/
+
+#homeContent {
+    width: 60%;
+    height: 100%;
+    display: grid;
+    z-index: 3;
+
+    grid-template-columns: repeat(6, 16%);
+    grid-template-rows: repeat(6, 16%);
+}
+
+#homeContentTitle {
+    grid-column: 2 / 5;
+    grid-row: 2 / 3;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+#homeContentTitle > h1 {
+    font-size: 6rem;
+}
+
+#homeContentDescription {
+    grid-column: 2 / 5;
+    grid-row: 3 / 4;
+}
+
+#homeContentDescription > p {
+    font-size: 1.5rem;
+    font-family: verdana;
+}
+
+#homeContentButton {
+    grid-column: 2 / 4;
+    grid-row: 4 / 5;
+}
+
+#learnMore {
+    background-color: rgba(255, 0, 0, 0.85);
+    border: transparent;
+    font-family: verdana;
+    box-shadow: 2px 5px;
+    transition: all 0.3s;
+
+    font-size: 2rem;
+    padding: 3vh 3vw;
+}
+
+#learnMore:hover {
+    background-color: rgb(150, 0, 0, 0.7);
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+#learnMore:active {
+    translate: 2px 4px;
+    box-shadow: 0px 1px;
+    transition: all 0.1s;
+}
+
+@media screen and (max-width: 540px)
+{
+    #homeContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #homeContentTitle {
+        margin-top: 10vh;
+    }
+
+    #homeContentDescription {
+        width: 50%;
+        margin: 5vh;
+        text-align: center;
+    }
+}
+
+/*
+**********************************************
+**********************************************
+**********************************************
+
+HomeDesign stuff
+
+**********************************************
+**********************************************
+**********************************************
+*/
+
+#homeDesigns {
+    width: 40%;
+    height: 100vh;
+    align-items: flex-end;
+}
+
+#ancientJapaneseHouse {
+    height: 90%;
+    opacity: 10%; 
+    position: absolute;
+}
+
+#cover {
+    position: absolute;
+    width: 35%;
+    height: 40vh;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    z-index: 2; /* So that the background doesn't go infront of this */
+    background-image: url("images/CoverArt3.jpg");
+    background-size: cover;
+}
+
+@media screen and (max-width: 800px)
+{
+    #homeContent {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #homeDesigns {
+        display: none;
+    }
+
+    #homeContentTitle > h1 {
+        font-size: 4.5rem;
+    }
+    
+    #homeContentDescription > p {
+        font-size: 1.2rem;
+    }
+
+    #learnMore {
+        box-shadow: 2px 4px;
+        transition: all 0.3s;
+    
+        font-size: 1.5rem;
+        padding: 3vh 4vw;
+    }
+    
+    #learnMore:active {
+        translate: 2px 3px;
+        box-shadow: 0px 1px;
+    }
+    
+    #ancientJapaneseHouse {
+        width: 100%;
+        height: auto;
+        margin-top: 5vh;
+        src: url("images/AncientJapaneseHouse1.png");
+    }
+}
+
+@media screen and (max-width: 540px)
+{
+    #homeContent {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #homeDesigns {
+        display: none;
+    }
+
+    #learnMore {
+        box-shadow: 1px 3px;
+        transition: all 0.3s;
+    
+        padding: 3vh 12vw;
+    }
+    
+    #learnMore:active {
+        translate: 1px 2px;
+        box-shadow: 0px 1px;
+    }
+    
+    #ancientJapaneseHouse {
+        content: url("images/AncientJapaneseHouse2.png");
+    }
+}
+
+/*
+**********************************************
+**********************************************
+**********************************************
+
+Learn page stuff
+
+**********************************************
+**********************************************
+**********************************************
+*/
+
+#learnPage {
+    display: none;
+    flex-wrap: wrap;
+    background-color: white;
+    height: auto;
+}
+
+#learnCover {
+    background-image: url("images/learnCover.jpg");
+    background-position: center;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#learnContent {
+    width: 85%;
+    margin-top: 5vh;
+    margin-bottom: 8vh;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#learnContent > h1 {
+    font-size: 2.2rem;
+    font-family: verdana;
+    margin-bottom: 5vh;
+}
+
+#learnContent > p {
+    font-size: 1.1rem;
+    font-family: verdana;
+}
+
+#learnContent > hr {
+    margin-top: 8vh;
+    margin-bottom: 5vh;
+}
+
+/*
+SectionsContainer stuff
+*/
+
+#learnContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#sectionsContainer {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(2, 62vh);
+    grid-row-gap: 4vh;
+}
+
+#sectionsContainer > div {
+    border-radius: 2vw;
+    margin-inline: 1vw;
+    overflow: hidden;
+    filter: brightness(100%);
+
+    transition: all 0.1s ease-in-out;
+}
+
+#sectionsContainer > div:hover {
+    scale: 101%;
+    filter: brightness(95%);
+    transition: all 0.1s;
+}
+
+#sectionsContainer > div > div {  /* These are the containers within the sections so that when hovered will reveal text */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+    background-image: url("images/BlackGradient.png");
+    background-size: cover;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+#sectionsContainer > div > div > p {
+    color: white;
+    text-shadow: black 0.1rem 0.1rem;
+    font-size: 1.5rem;
+    font-family: verdana;
+    margin: 1rem;
+    margin-bottom: 2rem;
+}
+
+#sectionsContainer > div > div:hover {
+    transform: translateY(calc(-4.5rem));
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+#sectionsContainer > div > h1 {
+    color: white;
+    text-shadow: black 0.2rem 0.2rem;
+    font-size: 4rem;
+    font-family: helvetica;
+    margin-inline: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#templeSection {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    background-image: url("images/TempleSection.jpeg");
+    background-size: cover;
+}
+
+#foodSection {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+
+    background-image: url("images/FoodSection.jpg");
+    background-size: cover;
+}
+
+#shrineSection {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+
+    background-image: url("images/ShrineSection.png");
+    background-size: cover;
+}
+
+#teaSection {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+    background-image: url("images/TeaSection.jpg");
+    background-size: cover;
+}
+
+#cultureSection {
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+
+    background-image: url("images/CultureSection.jpg");
+    background-size: cover;
+}
+
+@media screen and (max-width: 800px)
+{
+    #learnPage {
+        height: auto;
+    }
+
+    #sectionsContainer {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #templeSection {
+        width: 80%;
+        height: 50vh;
+    }
+
+    #foodSection {
+        width: 80%;
+        height: 50vh;
+    }
+
+    #shrineSection {
+        width: 80%;
+        height: 50vh;
+    }
+
+    #teaSection {
+        width: 80%;
+        height: 50vh;
+    }
+
+    #cultureSection {
+        width: 80%;
+        height: 90vh;
+    }
+}
+
+@media screen and (max-width: 540px)
+{
+    #learnPage {
+        height: auto;
+    }
+
+    #sectionsContainer {
+        height: auto;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #templeSection {
+        width: 90%;
+        height: 70vh;
+    }
+
+    #foodSection {
+        width: 90%;
+        height: 70vh;
+    }
+
+    #shrineSection {
+        width: 90%;
+        height: 70vh;
+    }
+
+    #teaSection {
+        width: 90%;
+        height: 70vh;
+    }
+
+    #cultureSection {
+        width: 90%;
+        height: 140vh;
+    }
+}
+
+/*
+**********************************************
+**********************************************
+**********************************************
+
+Destinations stuff
+
+**********************************************
+**********************************************
+**********************************************
+*/
+
+#destinationPage {
+    display: none;
+    background-color: black;
+    justify-content: center;
+}
+
+/*
+Destinations Cover stuff
+*/
+
+#destinationsCover {
+    background-image: url("images/DestinationsCover.jpg");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#destinationLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 12vh;
+    margin-bottom: 20vh;
+}
+
+#destinationLinks > a {
+    text-decoration: none;
+}
+
+#destinationLinks > a > p {
+    color: white;
+    font-size: 2.5rem;
+    font-family: verdana;
+    opacity: 100%;
+    margin-inline: 2vw;
+    transition: all 0.2s ease-in-out;
+}
+
+#destinationLinks > a > p:hover {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+/*
+**********************************************
+**********************************************
+**********************************************
+
+Destinations Content stuff
+
+**********************************************
+**********************************************
+**********************************************
+*/
+
+.destinationContent {
+    width: 100%;
+    height: 85vh;
+    margin-bottom: 5vh;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.destinationContent > div {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(200, 200, 200, 0.6);
+    width: 30%;
+    height: 100%;
+}
+
+.destinationDescriptionLeft {
+    float: left;
+    justify-content: flex-start;
+}
+
+.destinationDescriptionRight {
+    float: right;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.destinationContent > div > h1 {
+    font-size: 5rem;
+    font-family: verdana;
+    margin: 3%;
+}
+
+.destinationContent > div > p {
+    font-size: 2rem;
+    font-family: verdana;
+    margin: 3%;
+}
+
+#Kobe {
+    background-image: url("images/Kobe.jpg");
+}
+
+#Osaka {
+    background-image: url("images/Osaka.jpg");
+}
+
+#Tokyo {
+    background-image: url("images/Tokyo.jpg");
+}
+
+#Kyoto {
+    background-image: url("images/Kyoto.jpg");
+}
+
+#Hokkaido {
+    background-image: url("images/Hokkaido.jpg");
+}
+
+@media screen and (max-width: 800px)
+{
+    #destinationLinks > a > p {
+        font-size: 1.7rem;
+    }
+
+    .destinationContent > div {
+        width: 80%;
+    }
+
+    .destinationContent > div > h1 {
+        font-size: 5rem;
+    }
+    
+    .destinationContent > div > p {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 540px)
+{
+    #destinationLinks > a > p {
+        font-size: 1.3rem;
+    }
+
+    .destinationContent > div {
+        width: 100%;
+    }
+
+    .destinationContent > div > h1 {
+        font-size: 5rem;
+    }
+    
+    .destinationContent > div > p {
+        font-size: 2rem;
+    }
+}
+
+/*
+**********************************************
+**********************************************
+**********************************************
+
+Games stuff
+
+**********************************************
+**********************************************
+**********************************************
+*/
+
+#gamesPage {
+    display: none;
+    background-color: white;
+}
+
+#gamesContentImg1 {
+    width: 100%;
+    height: 30vh;
+    margin-top: 8vh;
+    display: flex;
+}
+
+#gamesContentImg1 > img {
+    background-image: url("images/GamesContentImg1.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    height: 100%;
+}
+
+#gamesContentImg2 {
+    width: 100%;
+    height: 30vh;
+    margin-top: 8vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#gamesContentImg2 > img {
+    background-image: url("images/GamesContentImg2.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    height: 100%;
+}
+
+#gamesCover {
+    background-image: url("images/gamesCover.jpg");
+    background-position: center;
+    justify-content: center;
+    background-position: bottom;
+}
+
+.gamesContent {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    margin-inline: 7vw;
+
+    opacity: 100%;
+    transition: all 0.5s ease-in;
+}
+
+.gamesContent > h2 {
+    font-family: verdana;
+    font-size: 4rem;
+    margin-top: 5vh;
+}
+
+.gamesContent > p {
+    font-family: helvetica;
+    font-size: 1.5rem;
+    margin-top: 5vh;
+}
+
+#gamesContent1 {
+    text-align: left;
+    justify-content: flex-start;
+    margin-right: 18vw;
+}
+
+#gamesContent2 {
+    text-align: right;
+    justify-content: flex-end;
+    margin-left: 18vw;
+}
+
+#gamesContent3 {
+    margin-top: 9vh;
+    margin-bottom: 4vh;
+}
+
+@media screen and (max-width: 800px)
+{
+
+}
+
+@media screen and (max-width: 540px)
+{
+
+}
+
+/*
+**********************************************
+**********************************************
+**********************************************
+
+Hanafuda game stuff
+
+**********************************************
+**********************************************
+**********************************************
+*/
+
+#gameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2%;
+    width: 100%;
+    background-color: rgb(230, 230, 230);
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(8, 7vw);
+    grid-template-rows: repeat(2, 25vh);
+    grid-row-gap: 3vh;
+    grid-column-gap: 4vw;
+}
+
+.card {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+
+    display: flex;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0);  /* Make the text transparent because it will be used to store the card type */
+
+    transition: all 0.2s ease-in;
+    scale: 100%;
+}
+
+@media screen and (max-width: 800px)
+{
+    .cardContainer {
+        display: grid;
+        grid-template-columns: repeat(4, 14vw);
+        grid-template-rows: repeat(4, 40vh);
+        grid-row-gap: 3vh;
+        grid-column-gap: 4vw;
+    }
+}
+
+@media screen and (max-width: 540px)
+{
+    .cardContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 35vw);
+        grid-template-rows: repeat(8, 30vh);
+        grid-row-gap: 3vh;
+        grid-column-gap: 4vw;
+    }
+}
+
+/*
+The different images of the different card types
+*/
+
+.cardType1 {
+    background-image: url("images/Card1.png");
+}
+
+.cardType2 {
+    background-image: url("images/Card2.png");
+}
+
+.cardType3 {
+    background-image: url("images/Card3.png");
+}
+
+.cardType4 {
+    background-image: url("images/Card4.png");
+}
+
+.cardType5 {
+    background-image: url("images/Card5.png");
+}
+
+.cardType6 {
+    background-image: url("images/Card6.png");
+}
+
+.cardType7 {
+    background-image: url("images/Card7.png");
+}
+
+.cardType8 {
+    background-image: url("images/Card8.png");
+}
+
+.cardClosed {
+    background-image: url("images/ClosedCard.png");
+    scale: -100%;
+}
+
+/*
+Other
+*/
+
+.bottomBlankSpace {
+    width: 100%;
+    height: 10vh;
+}
+
+#bottomBlackBlankSpace {
+    width: 100%;
+    height: 5vh;
+    background-color: black;
+    border: none;
+}
+
+/*
+Page stuff
+*/
+
+#page-container {
+    width: 100%;
+}
+
+.page {
+    min-height: 90vh;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.pageCover {
+    display: flex;
+    width: 100%;
+    height: 90vh;
+
+    background-color: lightblue;
+    background-size: cover;
+}
+
+.pageCover > h1 {
+    color: white;
+    font-family: verdana;
+    font-size: 6rem;
+    text-shadow: black 0.2rem 0.2rem;
+    margin: 3%;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+    background-color: black;
+    border-top: 2px dashed white;
+}
+
+footer > div {
+    width: 22%;
+    height: 30vh;
+    margin-inline: 3vw;
+    text-align: center;
+}
+
+footer > div > h1 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 2vh;
+    font-family: verdana;
+}
+
+footer > div > a {
+    text-decoration-color: white;
+}
+
+footer > div > a > p {
+    color: white;
+    opacity: 100%;
+    font-size: 1rem;
+    margin: 1.5vh;
+    font-family: verdana;
+    transition: all 0.2s ease-in;
+}
+
+footer > div > a > p:hover {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+footer > div > img {
+    height: 95%;
+    margin-top: 4%;
+}
+
+@media screen and (max-width: 800px)
+{
+    .pageCover > h1 {
+        font-size: 4.5rem;
+    }
+
+    #bottomBlankSpace {
+        height: 7vh;
+    }
+    
+    footer {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    footer > div {
+        width: 60%;
+        height: 20vh;
+    }
+}
+
+@media screen and (max-width: 540px)
+{
+    .pageCover > h1 {
+        font-size: 3.2rem;
+    }
+
+    #bottomBlankSpace {
+        height: 5vh;
+    }
+
+    footer > div {
+        width: 80%;
+    }
+
+    footer > div > img {
+        display: none;
+        margin: 0px;
+    }
+}
+
+nav ul li{display:inline;}
+
+
+
+
+
+
+
