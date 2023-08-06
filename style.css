@@ -811,32 +811,22 @@ Games stuff
 }
 
 #gamesContentImg1 {
-    width: 100%;
-    height: 30vh;
-    margin-top: 8vh;
-    display: flex;
-}
-
-#gamesContentImg1 > img {
+    background-image: url("images/GamesContentImg1.jpg");
     background-size: cover;
     background-position: center;
     width: 90%;
-    height: 100%;
+    height: 30vh;
+    margin-top: 5vh;
 }
 
 #gamesContentImg2 {
-    width: 100%;
-    height: 30vh;
-    margin-top: 8vh;
-    display: flex;
-    justify-content: flex-end;
-}
-
-#gamesContentImg2 > img {
+    background-image: url("images/GamesContentImg2.jpg");
     background-size: cover;
     background-position: center;
     width: 90%;
-    height: 100%;
+    height: 30vh;
+    margin-left: 10%;
+    margin-top: 5vh;
 }
 
 #gamesCover {
