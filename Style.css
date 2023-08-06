@@ -306,7 +306,7 @@ HomeDesign stuff
     flex-wrap: wrap;
 
     z-index: 2; /* So that the background doesn't go infront of this */
-    background-image: url("Images/CoverArt3.jpg");
+    background-image: url("images/CoverArt3.jpg");
     background-size: cover;
 }
 
@@ -346,7 +346,7 @@ HomeDesign stuff
         width: 100%;
         height: auto;
         margin-top: 5vh;
-        src: url("Images/AncientJapaneseHouse1.png");
+        src: url("images/AncientJapaneseHouse1.png");
     }
 }
 
@@ -374,7 +374,7 @@ HomeDesign stuff
     }
     
     #ancientJapaneseHouse {
-        content: url("Images/AncientJapaneseHouse2.png");
+        content: url("images/AncientJapaneseHouse2.png");
     }
 }
 
@@ -398,7 +398,7 @@ Learn page stuff
 }
 
 #learnCover {
-    background-image: url("Images/learnCover.jpg");
+    background-image: url("images/learnCover.jpg");
     background-position: center;
     align-items: flex-end;
     justify-content: center;
@@ -468,7 +468,7 @@ SectionsContainer stuff
     width: 100%;
     height: 100%;
     transition: transform 0.8s ease-in-out;
-    background-image: url("Images/BlackGradient.png");
+    background-image: url("images/BlackGradient.png");
     background-size: cover;
 
     display: flex;
@@ -503,7 +503,7 @@ SectionsContainer stuff
     grid-column: 1 / 2;
     grid-row: 1 / 2;
 
-    background-image: url("Images/TempleSection.jpeg");
+    background-image: url("images/TempleSection.jpeg");
     background-size: cover;
 }
 
@@ -511,7 +511,7 @@ SectionsContainer stuff
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 
-    background-image: url("Images/FoodSection.jpg");
+    background-image: url("images/FoodSection.jpg");
     background-size: cover;
 }
 
@@ -519,7 +519,7 @@ SectionsContainer stuff
     grid-column: 3 / 4;
     grid-row: 1 / 2;
 
-    background-image: url("Images/ShrineSection.png");
+    background-image: url("images/ShrineSection.png");
     background-size: cover;
 }
 
@@ -527,7 +527,7 @@ SectionsContainer stuff
     grid-column: 1 / 2;
     grid-row: 2 / 3;
 
-    background-image: url("Images/TeaSection.jpg");
+    background-image: url("images/TeaSection.jpg");
     background-size: cover;
 }
 
@@ -535,7 +535,7 @@ SectionsContainer stuff
     grid-column: 2 / 4;
     grid-row: 2 / 3;
 
-    background-image: url("Images/CultureSection.jpg");
+    background-image: url("images/CultureSection.jpg");
     background-size: cover;
 }
 
@@ -645,7 +645,7 @@ Destinations Cover stuff
 */
 
 #destinationsCover {
-    background-image: url("Images/DestinationsCover.jpg");
+    background-image: url("images/DestinationsCover.jpg");
     background-size: cover;
     background-position: bottom;
     width: 100%;
@@ -736,23 +736,23 @@ Destinations Content stuff
 }
 
 #Kobe {
-    background-image: url("Images/Kobe.jpg");
+    background-image: url("images/Kobe.jpg");
 }
 
 #Osaka {
-    background-image: url("Images/Osaka.jpg");
+    background-image: url("images/Osaka.jpg");
 }
 
 #Tokyo {
-    background-image: url("Images/Tokyo.jpg");
+    background-image: url("images/Tokyo.jpg");
 }
 
 #Kyoto {
-    background-image: url("Images/Kyoto.jpg");
+    background-image: url("images/Kyoto.jpg");
 }
 
 #Hokkaido {
-    background-image: url("Images/Hokkaido.jpg");
+    background-image: url("images/Hokkaido.jpg");
 }
 
 @media screen and (max-width: 800px)
@@ -818,7 +818,7 @@ Games stuff
 }
 
 #gamesContentImg1 > img {
-    background-image: url("Images/GamesContentImg1.jpg");
+    background-image: url("images/GamesContentImg1.jpg");
     background-size: cover;
     background-position: center;
     width: 90%;
@@ -834,7 +834,7 @@ Games stuff
 }
 
 #gamesContentImg2 > img {
-    background-image: url("Images/GamesContentImg2.jpg");
+    background-image: url("images/GamesContentImg2.jpg");
     background-size: cover;
     background-position: center;
     width: 90%;
@@ -842,7 +842,7 @@ Games stuff
 }
 
 #gamesCover {
-    background-image: url("Images/gamesCover.jpg");
+    background-image: url("images/gamesCover.jpg");
     background-position: center;
     justify-content: center;
     background-position: bottom;
@@ -970,39 +970,39 @@ The different images of the different card types
 */
 
 .cardType1 {
-    background-image: url("Images/Card1.png");
+    background-image: url("images/Card1.png");
 }
 
 .cardType2 {
-    background-image: url("Images/Card2.png");
+    background-image: url("images/Card2.png");
 }
 
 .cardType3 {
-    background-image: url("Images/Card3.png");
+    background-image: url("images/Card3.png");
 }
 
 .cardType4 {
-    background-image: url("Images/Card4.png");
+    background-image: url("images/Card4.png");
 }
 
 .cardType5 {
-    background-image: url("Images/Card5.png");
+    background-image: url("images/Card5.png");
 }
 
 .cardType6 {
-    background-image: url("Images/Card6.png");
+    background-image: url("images/Card6.png");
 }
 
 .cardType7 {
-    background-image: url("Images/Card7.png");
+    background-image: url("images/Card7.png");
 }
 
 .cardType8 {
-    background-image: url("Images/Card8.png");
+    background-image: url("images/Card8.png");
 }
 
 .cardClosed {
-    background-image: url("Images/ClosedCard.png");
+    background-image: url("images/ClosedCard.png");
     scale: -100%;
 }
 
