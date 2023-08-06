@@ -102,16 +102,16 @@ button {
     justify-content: flex-end;
 }
 
-#headerLinksContainer > h1 {
+#headerLinksContainer > h2 {
     font-size: 1.5rem;
     font-family: helvetica;
     margin-right: 5vw;
     transition: all 0.3s;
 }
 
-#headerLinksContainer > h1:hover {
+#headerLinksContainer > h2:hover {
     opacity: 40%;
-    transform: translate(0px -0.2rem);
+    translate: 0px -0.2rem;
     transition: all 0.7s;
     cursor: pointer;
 }
@@ -248,7 +248,7 @@ HomeContent stuff
 }
 
 #learnMore:active {
-    transform: translate(2px 4px);
+    translate: 2px 4px;
     box-shadow: 0px 1px;
     transition: all 0.1s;
 }
@@ -338,7 +338,7 @@ HomeDesign stuff
     }
     
     #learnMore:active {
-        transform: translate(2px 3px);
+        translate: 2px 3px;
         box-shadow: 0px 1px;
     }
     
@@ -369,7 +369,7 @@ HomeDesign stuff
     }
     
     #learnMore:active {
-        transform: translate(1px 2px);
+        translate: 1px 2px;
         box-shadow: 0px 1px;
     }
     
