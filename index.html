@@ -8,51 +8,219 @@
 
     <body>
         <div id="loadingScreen">
-            <img src="Images/LoadingScreenMountain.png" />
+            <img src="Images/LoadingScreenMountain.png" alt="Loading Screen" />
         </div>
 
         <div id="left-menu">
-
+            <div id="emptyBlackSpace"> </div>
+            <hr>
+            <h2 class="homeButton">Home</h2>
+            <hr>
+            <h2 class="learnButton">Learn</h2>
+            <hr>
+            <h2 class="destinationButton">Destinations</h2>
+            <hr>
+            <h2 class="gamesButton">Games</h2>
         </div>
 
         <div id="main">
             <nav id="header">
-                <img src="Images/MenuButton.png" id="menuButton" />
+                <img src="Images/MenuButton.png" id="menuButton" alt="Menu Button" />
                 <div id="headerLinksContainer">
-                    <h1 id="homeButton">Home</h1>
-                    <h1 id="testButton1">Test1</h1>
-                    <h1 id="destinationButton">Destinations</h1>
-                    <h1 id="testButton2">Test2</h1>
+                    <h1 class="homeButton">Home</h1>
+                    <h1 class="learnButton">Learn</h1>
+                    <h1 class="destinationButton">Destinations</h1>
+                    <h1 class="gamesButton">Games</h1>
                 </div>
             </nav>
 
             <div id="page-container">
                 <div class="page" id="homePage">
-                    <img src="Images/AncientJapaneseHouse1.png" id="ancientJapaneseHouse1" />
+                    <img src="Images/AncientJapaneseHouse1.png" id="ancientJapaneseHouse" alt="Ancient Japanese House" />
                     
                     <div id="homeContent">  
                         <div id="homeContentTitle" lang="jp"><h1>日本</h1></div>
                         <div id="homeContentDescription"><p>Japan is a cool country anime daisuki</p></div>
-                        <div id="homeContentButton"><button id="learnMore">Learn More</button></div>
+                        <div id="homeContentButton" class="learnButton"><button id="learnMore">Learn More</button></div>
                     </div>
 
                     <div id="homeDesigns">
-                        <img src="Images/Samurai.png" id="samurai" />
+                        <img src="Images/Samurai.png" id="samurai" alt="Samurai" />
                     </div>
                 </div>
 
-                <div class="page" id="testPage1">
-                    page 1 content
-                </div>
+                <div class="page" id="learnPage">
+
+                    <div class="pageCover" id="learnCover">
+                        <h1>Learn</h1>
+                    </div>
+
+                    <div id="learnContainer">
+                        <div id="learnContent">
+                            <h1>A Little Bit About Japan</h1>
+                            <p>
+                                Japan, a captivating island nation in East Asia, embraces a rich tapestry of ancient customs and modern marvels. Its spirituality finds expression in serene temples and sacred shrines, while traditional arts like tea ceremonies and kabuki theater offer glimpses into its timeless past. Japan's exquisite cuisine, from sushi to ramen, delights the senses with meticulous presentation and flavors. Cherry blossoms, symbolizing life's transient beauty, enchant during hanami gatherings. Embracing its samurai heritage, Japan blends honor and loyalty with cutting-edge technology, leading the world in innovation. From anime and manga to traditional festivals, Japan's cultural allure welcomes visitors with warm hospitality and timeless charm.
+                            </p>
+                            <hr>
+                        </div>
+
+                        
+                            <div id="sectionsContainer">
+                                <div id="templeSection">
+                                    <h1>Temples</h1>
+                                    <div>
+                                        <p>Serene sanctuaries steeped in tradition, adorned with intricate architecture and sacred gardens, inviting contemplation and peace.</p>
+                                    </div>
+                                </div>
+                                <div id="foodSection">
+                                    <h1>Food</h1>
+                                    <div>
+                                        <p>An artful blend of fresh ingredients, delicate flavors, and meticulous presentation, crafting a culinary experience that delights the senses.</p>
+                                    </div>
+                                </div>
+                                <div id="shrineSection">
+                                    <h1>Shrines</h1>
+                                    <div>
+                                        <p>Tranquil havens of spiritual reverence, preserving ancient customs, and housing sacred relics amidst nature's embrace.</p>
+                                    </div>
+                                </div>
+                                <div id="teaSection">
+                                    <h1>Tea</h1>
+                                    <div>
+                                        <p>An elegant ritual steeped in history, offering a meditative moment to savor the rich flavors and promote tranquility.</p>
+                                    </div>
+                                </div>
+                                <div id="cultureSection">
+                                    <h1>Culture</h1>
+                                    <div>
+                                        <p>
+                                            Japanese culture is a captivating tapestry of tradition and modernity. Embracing respect, harmony, and exquisite artistry, it celebrates tea ceremonies, cherry blossoms, samurai heritage, anime, technological innovation, and a deep appreciation for nature's beauty.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bottomBlankSpace">
+                            <!-- Just a little bit of space to make the page less claustrophobic -->
+                        </div>
+                    </div>
+
 
                 <div class="page" id="destinationPage">
-                    DestinationPage
+                    <div class="pageCover" id="destinationsCover">
+                        <h1>Cool Destinations In Japan</h1>
+                    </div>
+
+                    <div id="destinationLinks">
+                        <a href="#Kobe"><p>Kobe</p></a>
+                        <a href="#Osaka"><p>Osaka</p></a>
+                        <a href="#Tokyo"><p>Tokyo</p></a>
+                        <a href="#Kyoto"><p>Kyoto</p></a>
+                        <a href="#Hokkaido"><p>Hokkaido</p></a>
+                    </div>
+
+                    <div class="destinationContent" id="Kobe">
+                        <div class="destinationDescriptionLeft">
+                            <h1>Kobe</h1>
+                            <p>Revered for the world-famous Kobe beef: a uniquely tender and marbled delicacy derived from snow-aged filet mignon, cherished for its rich flavor and exceptional dining experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="destinationContent" id="Osaka">
+                        <div class="destinationDescriptionRight">
+                            <h1>Osaka</h1>
+                            <p>A dynamic city that blends modernity with tradition. Famous for its bustling street food scene, iconic landmarks like Osaka Castle and Dotonbori, and welcoming atmosphere that captures the essence of Japanese hospitality.</p>
+                        </div>
+                    </div>
+
+                    <div class="destinationContent" id="Tokyo">
+                        <div class="destinationDescriptionLeft">
+                            <h1>Tokyo</h1>
+                            <p>A modern metropolis where tradition meets cutting-edge technology. Where towering skyscrapers, historic temples, bustling markets, and Michelin-starred restaurants coexist.</p>
+                        </div>
+                    </div>
+
+                    <div class="destinationContent" id="Kyoto">
+                        <div class="destinationDescriptionRight">
+                            <h1>Kyoto</h1>
+                            <p>A captivating blend of ancient and contemporary. Revered for its well-preserved temples, serene gardens, and traditional tea houses. Kyoto's cultural richness and beauty continue to enchant visitors from around the world.</p>
+                        </div>
+                    </div>
+
+                    <div class="destinationContent" id="Hokkaido">
+                        <div class="destinationDescriptionLeft">
+                            <h1>Hokkaido</h1>
+                            <p>The northern frontier known for its breathtaking landscapes, including vast wilderness, hot springs, and ski resorts. An outdoor enthusiast's paradise, offering fresh seafood, winter festivals, and unique indigenous culture.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="page" id="testPage2">
-                    page 3 content
+                <div class="page" id="gamesPage">
+                    <div class="pageCover" id="gamesCover">
+                        <h1>Games</h1>
+                    </div>
+
+                    <div class="gamesContent" id="gamesContent1">
+                        <h2>Overview</h2>
+                        <hr>
+                        <p>
+                            Gaming culture in Japan is deeply ingrained and renowned for its innovative contributions to the industry. Iconic franchises from Nintendo, Sony, and Capcom are beloved by all ages. Japanese gamers enjoy diverse genres, and arcades provide a social space. Esports has grown significantly, with games like Street Fighter and League of Legends gaining popularity. Gaming conventions like Tokyo Game Show foster a vibrant community. Japan's gaming culture remains integral to its modern identity, rich in history and innovation.
+                        </p>
+                    </div>
+
+                    <div id="gamesContentImg1"><img /></div>
+
+                    <div class="gamesContent" id="gamesContent2">
+                        <h2>History</h2>
+                        <hr>
+                        <p>
+                            In Japan, the history of gaming culture traces back to the traditional card game "Hanafuda" created in the 18th century. Initially played with mulberry bark cards featuring floral illustrations, it became popular among nobility. Transitioning to Western-style playing cards in the late 19th century, Hanafuda expanded its appeal. The game's cultural significance influenced modern gaming experiences, captivating players through the years.
+                        </p>
+                    </div>
+
+                    <div id="gamesContentImg2"><img /></div>
+
+                    <div class="gamesContent" id="gamesContent3">
+                        <h2>Little Hanafuda Game</h2>
+                        <hr>
+                    </div>
+
+                    <div id="gameContainer">
+                        <div class="cardContainer" id="game-container">
+                            <!-- Cards will be generated here by Javascript -->
+                        </div>
+                    </div>
+
+                    <div class="bottomBlankSpace">
+                        <!-- Just a little bit of space to make the page less claustrophobic -->
+                    </div>
                 </div>
             </div>
+
+            <div id="bottomBlackBlankSpace">
+                <!-- Just a little bit of space to make the page less claustrophobic -->
+            </div>
+
+            <footer>
+                <div>
+                    <h1>Contact Me</h1>
+                    <a href="https://www.japan.go.jp" target="_blank"><p>Japanese Government</p></a>
+                    <a href="https://www.japan.go.jp" target="_blank"><p>Japanese Government</p></a>
+                    <a href="https://www.japan.go.jp" target="_blank"><p>Japanese Government</p></a>
+                </div>
+
+                <div>
+                    <img src="Images/QR_Code.png" alt="QR Code for this Website" />
+                </div>
+
+                <div>
+                    <h1>Helpful Links</h1>
+                    <a href="https://www.japan.travel/en/us/" target="_blank"><p>Japan Tour Guide</p></a>
+                    <a href="https://www.nta.sg" target="_blank"><p>Japan Tour Agency</p></a>
+                    <a href="https://www.japan.go.jp" target="_blank"><p>Japanese Government Website</p></a>
+                </div>
+            </footer>
         </div>
 
         <script src="JS.js"></script>
