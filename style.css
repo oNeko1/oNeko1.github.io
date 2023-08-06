@@ -818,7 +818,6 @@ Games stuff
 }
 
 #gamesContentImg1 > img {
-    background-image: url("images/GamesContentImg1.jpg");
     background-size: cover;
     background-position: center;
     width: 90%;
@@ -834,7 +833,6 @@ Games stuff
 }
 
 #gamesContentImg2 > img {
-    background-image: url("images/GamesContentImg2.jpg");
     background-size: cover;
     background-position: center;
     width: 90%;
