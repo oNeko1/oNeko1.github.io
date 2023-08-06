@@ -1144,9 +1144,10 @@ footer > div > img {
 
 nav ul li{display:inline;}
 
-
-
-
-
-
-
+/*
+For the scrolling animations
+*/
+.invisibleScroll {
+    opacity: 0%;
+    transition: all 0.2s ease-in;
+}

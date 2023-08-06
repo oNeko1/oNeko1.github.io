@@ -214,49 +214,31 @@ destinationLinks.forEach((link, index) => {
 
 updateDestinationLinks(2);
 
+// ************************************
+// The scrolling animation
+// ************************************
 
+let sections = document.querySelectorAll(".scrollAnimated");
 
-
-
-
-
-
-// Don't know why it does not work
-
-/* document.querySelectorAll("*").forEach(element => {
-    element.classList.add("notAnimatedIntoWindow");
+sections.forEach(sec => {
+    sec.classList.add("invisibleScroll");
 })
 
-// Function to check if the element is in the viewport
-function isElementInViewport(element) {
-    const check = element.getBoundingClientRect();
-    return (
-        check.top >= 0 &&
-        check.left >= 0 &&
-        check.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        check.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+// So that I can use it for below (60vh)
+const viewportHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
+window.onscroll = () => {
+    sections.forEach(sec => {
+        let top = window.scrollY + (0.5 * viewportHeight);
+        let offset = sec.offsetTop;
+        let height = sec.offsetHeight;
+        
+        if (top >= offset && top < offset + height) {
+            sec.classList.remove("invisibleScroll");
+        }
+
+        else {
+            sec.classList.add("invisibleScroll");
+        }
+    })
 }
-
-// Function to animate the element into the window if it is within viewport
-function animateIntoWindow(element) {
-    if (isElementInViewport(element)) {
-        element.classList.remove("notAnimatedIntoWindow");
-    }
-}
-
-// Add a scroll event listener to trigger the animation
-window.addEventListener("scroll", () => {
-    document.querySelectorAll("*").forEach((element) => {
-        animateIntoWindow(element);
-    });
-});
-
-// Add a scroll event listener to trigger the animation
-window.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("*").forEach((element) => {
-        animateIntoWindow(element);
-    });
-}); */
-
-
