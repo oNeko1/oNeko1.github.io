@@ -1,229 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Breen See Ray Yang's ICA2</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css" type="text/css">
-    </head>
-
-    <body>
-        <div id="loadingScreen">
-            <img src="images/LoadingScreenMountain.png" alt="Loading Screen">
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Practical</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
         </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Practical</div>
+      </div>
+    </div>
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
 
-        <div id="left-menu">
-            <div id="emptyBlackSpace"> </div>
-            <hr>
-            <h2 class="homeButton">Home</h2>
-            <hr>
-            <h2 class="learnButton">Learn</h2>
-            <hr>
-            <h2 class="destinationButton">Destinations</h2>
-            <hr>
-            <h2 class="gamesButton">Games</h2>
-        </div>
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
 
-        <div id="main">
-            <nav id="header">
-                <img src="images/MenuButton.png" id="menuButton" alt="Menu Button">
-                <div id="headerLinksContainer">
-                    <h2 class="homeButton">Home</h2>
-                    <h2 class="learnButton">Learn</h2>
-                    <h2 class="destinationButton">Destinations</h2>
-                    <h2 class="gamesButton">Games</h2>
-                </div>
-            </nav>
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/oNeko1.github.io.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/oNeko1.github.io.data",
+        frameworkUrl: buildUrl + "/oNeko1.github.io.framework.js",
+        codeUrl: buildUrl + "/oNeko1.github.io.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Practical",
+        productVersion: "1.0",
+        showBanner: unityShowBanner,
+      };
 
-            <div id="page-container">
-                <div class="page" id="homePage">
-                    <img src="images/AncientJapaneseHouse1.png" id="ancientJapaneseHouse" alt="Ancient Japanese House">
-                    
-                    <div id="homeContent">  
-                        <div id="homeContentTitle"><h1 lang="ja">日本</h1></div>
-                        <div id="homeContentDescription"><p>Japan is a cool country anime daisuki</p></div>
-                        <div id="homeContentButton" class="learnButton"><button id="learnMore">Learn More</button></div>
-                    </div>
+      // By default Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
 
-                    <div id="homeDesigns">
-                        <img src="images/Samurai.png" id="samurai" alt="Samurai">
-                    </div>
-                </div>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
 
-                <div class="page" id="learnPage">
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
 
-                    <div class="pageCover" id="learnCover">
-                        <h1>Learn</h1>
-                    </div>
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
 
-                    <div id="learnContainer">
-                        <div id="learnContent">
-                            <h1>A Little Bit About Japan</h1>
-                            <p>
-                                Japan, a captivating island nation in East Asia, embraces a rich tapestry of ancient customs and modern marvels. Its spirituality finds expression in serene temples and sacred shrines, while traditional arts like tea ceremonies and kabuki theater offer glimpses into its timeless past. Japan's exquisite cuisine, from sushi to ramen, delights the senses with meticulous presentation and flavors. Cherry blossoms, symbolizing life's transient beauty, enchant during hanami gatherings. Embracing its samurai heritage, Japan blends honor and loyalty with cutting-edge technology, leading the world in innovation. From anime and manga to traditional festivals, Japan's cultural allure welcomes visitors with warm hospitality and timeless charm.
-                            </p>
-                            <hr>
-                        </div>
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-                        
-                            <div id="sectionsContainer">
-                                <div id="templeSection">
-                                    <h1>Temples</h1>
-                                    <div>
-                                        <p>Serene sanctuaries steeped in tradition, adorned with intricate architecture and sacred gardens, inviting contemplation and peace.</p>
-                                    </div>
-                                </div>
-                                <div id="foodSection">
-                                    <h1>Food</h1>
-                                    <div>
-                                        <p>An artful blend of fresh ingredients, delicate flavors, and meticulous presentation, crafting a culinary experience that delights the senses.</p>
-                                    </div>
-                                </div>
-                                <div id="shrineSection">
-                                    <h1>Shrines</h1>
-                                    <div>
-                                        <p>Tranquil havens of spiritual reverence, preserving ancient customs, and housing sacred relics amidst nature's embrace.</p>
-                                    </div>
-                                </div>
-                                <div id="teaSection">
-                                    <h1>Tea</h1>
-                                    <div>
-                                        <p>An elegant ritual steeped in history, offering a meditative moment to savor the rich flavors and promote tranquility.</p>
-                                    </div>
-                                </div>
-                                <div id="cultureSection">
-                                    <h1>Culture</h1>
-                                    <div>
-                                        <p>
-                                            Japanese culture is a captivating tapestry of tradition and modernity. Embracing respect, harmony, and exquisite artistry, it celebrates tea ceremonies, cherry blossoms, samurai heritage, anime, technological innovation, and a deep appreciation for nature's beauty.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
 
-                        <div class="bottomBlankSpace">
-                            <!-- Just a little bit of space to make the page less claustrophobic -->
-                        </div>
-                    </div>
+      loadingBar.style.display = "block";
 
-
-                <div class="page" id="destinationPage">
-                    <div class="pageCover" id="destinationsCover">
-                        <h1>Cool Destinations In Japan</h1>
-                    </div>
-
-                    <div id="destinationLinks">
-                        <a href="#Kobe"><p>Kobe</p></a>
-                        <a href="#Osaka"><p>Osaka</p></a>
-                        <a href="#Tokyo"><p>Tokyo</p></a>
-                        <a href="#Kyoto"><p>Kyoto</p></a>
-                        <a href="#Hokkaido"><p>Hokkaido</p></a>
-                    </div>
-
-                    <div class="destinationContent scrollAnimated" id="Kobe">
-                        <div class="destinationDescriptionLeft">
-                            <h1>Kobe</h1>
-                            <p>Revered for the world-famous Kobe beef: a uniquely tender and marbled delicacy derived from snow-aged filet mignon, cherished for its rich flavor and exceptional dining experience.</p>
-                        </div>
-                    </div>
-
-                    <div class="destinationContent scrollAnimated" id="Osaka">
-                        <div class="destinationDescriptionRight">
-                            <h1>Osaka</h1>
-                            <p>A dynamic city that blends modernity with tradition. Famous for its bustling street food scene, iconic landmarks like Osaka Castle and Dotonbori, and welcoming atmosphere that captures the essence of Japanese hospitality.</p>
-                        </div>
-                    </div>
-
-                    <div class="destinationContent scrollAnimated" id="Tokyo">
-                        <div class="destinationDescriptionLeft">
-                            <h1>Tokyo</h1>
-                            <p>A modern metropolis where tradition meets cutting-edge technology. Where towering skyscrapers, historic temples, bustling markets, and Michelin-starred restaurants coexist.</p>
-                        </div>
-                    </div>
-
-                    <div class="destinationContent scrollAnimated" id="Kyoto">
-                        <div class="destinationDescriptionRight">
-                            <h1>Kyoto</h1>
-                            <p>A captivating blend of ancient and contemporary. Revered for its well-preserved temples, serene gardens, and traditional tea houses. Kyoto's cultural richness and beauty continue to enchant visitors from around the world.</p>
-                        </div>
-                    </div>
-
-                    <div class="destinationContent scrollAnimated" id="Hokkaido">
-                        <div class="destinationDescriptionLeft">
-                            <h1>Hokkaido</h1>
-                            <p>The northern frontier known for its breathtaking landscapes, including vast wilderness, hot springs, and ski resorts. An outdoor enthusiast's paradise, offering fresh seafood, winter festivals, and unique indigenous culture.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="page" id="gamesPage">
-                    <div class="pageCover" id="gamesCover">
-                        <h1>Games</h1>
-                    </div>
-
-                    <div class="gamesContent" id="gamesContent1">
-                        <h2>Overview</h2>
-                        <hr>
-                        <p>
-                            Gaming culture in Japan is deeply ingrained and renowned for its innovative contributions to the industry. Iconic franchises from Nintendo, Sony, and Capcom are beloved by all ages. Japanese gamers enjoy diverse genres, and arcades provide a social space. Esports has grown significantly, with games like Street Fighter and League of Legends gaining popularity. Gaming conventions like Tokyo Game Show foster a vibrant community. Japan's gaming culture remains integral to its modern identity, rich in history and innovation.
-                        </p>
-                    </div>
-
-                    <div id="gamesContentImg1"></div>
-
-                    <div class="gamesContent" id="gamesContent2">
-                        <h2>History</h2>
-                        <hr>
-                        <p>
-                            In Japan, the history of gaming culture traces back to the traditional card game "Hanafuda" created in the 18th century. Initially played with mulberry bark cards featuring floral illustrations, it became popular among nobility. Transitioning to Western-style playing cards in the late 19th century, Hanafuda expanded its appeal. The game's cultural significance influenced modern gaming experiences, captivating players through the years.
-                        </p>
-                    </div>
-
-                    <div id="gamesContentImg2"></div>
-
-                    <div class="gamesContent" id="gamesContent3">
-                        <h2>Little Hanafuda Game</h2>
-                        <hr>
-                    </div>
-
-                    <div id="gameContainer">
-                        <div class="cardContainer" id="game-container">
-                            <!-- Cards will be generated here by Javascript -->
-                        </div>
-                    </div>
-
-                    <div class="bottomBlankSpace">
-                        <!-- Just a little bit of space to make the page less claustrophobic -->
-                    </div>
-                </div>
-            </div>
-
-            <div id="bottomBlackBlankSpace">
-                <!-- Just a little bit of space to make the page less claustrophobic -->
-            </div>
-
-            <footer>
-                <div>
-                    <h1>Contact Me</h1>
-                    <a href="mailto:breen-see@hotmail.com"><p>My Email</p></a>
-                    <a href="https://twitter.com/home" target="_blank"><p>Twitter</p></a>
-                    <a href="https://www.instagram.com" target="_blank"><p>Instagram</p></a>
-                </div>
-
-                <div>
-                    <img src="images/QR_Code.png" alt="QR Code for this Website">
-                </div>
-
-                <div>
-                    <h1>Helpful Links</h1>
-                    <a href="https://www.japan.travel/en/us/" target="_blank"><p>Japan Tour Guide</p></a>
-                    <a href="https://www.nta.sg" target="_blank"><p>Japan Tour Agency</p></a>
-                    <a href="https://www.japan.go.jp" target="_blank"><p>Japanese Government Website</p></a>
-                </div>
-            </footer>
-        </div>
-
-        <script src="script.js"></script>
-    </body>
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
 </html>
